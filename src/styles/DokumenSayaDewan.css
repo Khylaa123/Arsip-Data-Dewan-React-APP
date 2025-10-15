@@ -1,0 +1,463 @@
+/* Custom Fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Variabel Warna */
+:root {
+    --color-primary-orange: #FFBB70;
+    --color-secondary-orange: #ED9455;
+    --color-soft-orange: #F4CC99;
+    --color-bg-light: #FFFADE; /* Warna paling muda dari gradien BG */
+    --color-card-border: #DB944B;
+    --color-text-dark: #222222;
+    --color-text-light: #A8A8A8;
+    --color-pagination-text: #505050;
+    
+    /* Document/Action Colors */
+    --color-action-download: #FCAE53;
+    --color-action-edit: #3662E3;
+    --color-action-delete: #FF684F;
+    --color-status-green: #88F48D;
+    
+    /* File Icons */
+    --color-file-pdf: #D40004;
+    --color-file-word: #344AAB;
+    --color-file-excel: #407F4B;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    /* KOREKSI JALUR GAMBAR BACKGROUND */
+    background-image: url('../../assets/bg-dewan.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px; /* Lebar Maksimal sesuai desain */
+    min-height: 980px;
+    background: transparent;
+}
+
+/* ------------------- */
+/* Sidebar Kiri (Replikasi dari desain sebelumnya) */
+/* ------------------- */
+.sidebar {
+    width: 272px; 
+    padding: 30px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-soft-orange);
+    flex-shrink: 0;
+    margin-left: -50px; 
+    position: relative;
+    z-index: 10;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-left: 50px; 
+}
+
+.logo-img {
+    width: 200px;
+    height: auto;
+}
+
+.divider {
+    border: none;
+    height: 4px;
+    background-color: var(--color-soft-orange);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-summary {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-left: 50px; 
+}
+
+.profile-pic-small {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* Background E6E6E6 dan border ED9455 sesuai desain */
+    background: #E6E6E6;
+    border: 2px solid var(--color-secondary-orange);
+}
+
+.profile-img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-summary .name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+.profile-summary .position {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
+.menu {
+    width: 100%;
+    padding-left: 50px; 
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    margin-bottom: 15px;
+    color: var(--color-primary-orange);
+    text-decoration: none;
+    border-radius: 9px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.menu-item i {
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.menu-item.active {
+    background: rgba(255, 220, 171, 0.8);
+    color: var(--color-secondary-orange);
+    font-weight: 600;
+}
+.menu-item.active i {
+    color: var(--color-secondary-orange);
+}
+
+
+/* ------------------- */
+/* Konten Utama Dokumen */
+/* ------------------- */
+.document-content {
+    flex-grow: 1;
+    padding: 10px 40px;
+    z-index: 5;
+}
+
+.document-section {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--color-card-border);
+    padding: 20px 30px 40px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Search Bar --- */
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0 20px;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ACACAC;
+    padding: 5px 15px;
+    width: 463px; /* Lebar sesuai desain */
+    height: 45px;
+}
+
+.search-icon {
+    font-size: 18px;
+    color: #ACACAC;
+    margin-right: 10px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 20px;
+    color: #ACACAC;
+}
+.search-input::placeholder {
+    color: #ACACAC;
+    font-weight: 400;
+}
+
+.filter-icon {
+    font-size: 24px;
+    color: var(--color-secondary-orange);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Document Table --- */
+.document-table-container {
+    overflow-x: auto;
+}
+
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.document-table th,
+.document-table td {
+    padding: 15px 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-text-dark);
+}
+
+.document-table th {
+    font-weight: 500;
+    color: white;
+}
+
+.header-row {
+    background-color: var(--color-primary-orange);
+    height: 67px;
+}
+
+.document-table tbody tr {
+    border-bottom: 1px solid #BABABA;
+}
+
+.document-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Kolom Lebar */
+.col-checkbox { width: 50px; text-align: center; }
+.col-status { width: 150px; text-align: center; }
+.col-date { width: 180px; }
+.col-aksi { width: 150px; text-align: center; }
+
+/* Custom Checkbox */
+.custom-checkbox {
+    width: 27px;
+    height: 27px;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.header-row .custom-checkbox {
+    border-color: white;
+}
+
+/* File Icon Styling */
+.doc-icon {
+    font-size: 18px;
+    margin-right: 10px;
+}
+.red-file { color: var(--color-file-pdf); }
+.green-file { color: var(--color-file-word); }
+.blue-file { color: var(--color-file-excel); }
+
+/* Status Badge */
+.status-badge {
+    padding: 5px 15px;
+    border-radius: 42px;
+    font-size: 15px;
+    font-weight: 400;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-badge.green {
+    background-color: var(--color-status-green);
+    color: var(--color-text-dark);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 48px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #f7f7f7;
+}
+
+.action-btn.orange-border { border-color: var(--color-action-download); color: var(--color-action-download); }
+.action-btn.blue-border { border-color: var(--color-action-edit); color: var(--color-action-edit); }
+.action-btn.red-border { border-color: var(--color-action-delete); color: var(--color-action-delete); }
+
+
+/* --- Pagination Footer --- */
+.pagination-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.results-info {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-pagination-text);
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.per-page-selector {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: var(--color-pagination-text);
+    font-weight: 400;
+}
+
+.dropdown-box {
+    margin-left: 10px;
+    border: 1px solid var(--color-primary-orange);
+    border-radius: 8px;
+    padding: 5px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.dropdown-box i {
+    transform: rotate(90deg);
+}
+
+.page-numbers {
+    display: flex;
+    align-items: center;
+    border: 1px solid #F8BD7F;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.page-number, .page-arrow {
+    background: white;
+    color: var(--color-pagination-text);
+    border: none;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 35px;
+    min-width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.page-arrow {
+    color: #505050;
+    padding: 0 10px;
+}
+.page-arrow:first-child { border-right: 1px solid #F8BD7F; }
+.page-arrow:last-child { border-left: 1px solid #F8BD7F; }
+
+
+.page-number { 
+    border-right: 1px solid #F8BD7F; 
+}
+.page-number:last-child {
+    border-right: none;
+}
+
+.page-number.active-page {
+    background: var(--color-primary-orange);
+    color: white;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 1200px) {
+    .document-content {
+        padding: 20px 10px;
+    }
+    .search-box {
+        width: 100%;
+        max-width: 400px;
+    }
+    .search-container {
+        justify-content: space-between;
+    }
+    .document-section {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
+        border-radius: 20px 20px 0 0;
+        border-bottom: 1px solid var(--color-soft-orange);
+        padding-bottom: 10px;
+    }
+    .sidebar .header-logo, 
+    .sidebar .profile-summary, 
+    .sidebar .menu {
+        padding-left: 0;
+        justify-content: center;
+    }
+    .document-content {
+        width: 100%;
+        padding: 10px;
+    }
+    .pagination-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}

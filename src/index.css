@@ -1,0 +1,16 @@
+/* src/index.css */
+/* HAPUS SEMUA KODE BAWAAN VITE/REACT */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Pastikan background aplikasi default putih */
+  font-family: 'Poppins', sans-serif; 
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  max-width: none; /* Penting: Hapus batasan lebar */
+  padding: 0;
+}

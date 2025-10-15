@@ -1,0 +1,142 @@
+/* src/styles/DataDewanModal.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- Global Modal Styling --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    width: 450px; 
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 1. Specific Styling: Pop-up Verifikasi Hapus (delete-verification-modal) --- */
+.delete-verification-modal .modal-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    border: 5px solid #FF5F5F; /* Merah terang */
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF5F5F;
+}
+
+.delete-verification-modal .modal-icon-wrapper svg { /* Mengganti i menjadi svg untuk React Icons */
+    font-size: 40px;
+}
+
+.delete-verification-modal .modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.delete-verification-modal .modal-message {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.delete-verification-modal .modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.delete-verification-modal .btn-cancel,
+.delete-verification-modal .btn-confirm {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+    height: 50px;
+}
+
+.delete-verification-modal .btn-cancel {
+    background-color: #61E87E; /* Hijau muda */
+    color: white;
+}
+.delete-verification-modal .btn-cancel:hover {
+    background-color: #53c86a;
+}
+
+.delete-verification-modal .btn-confirm {
+    background-color: #FF7B7B; /* Merah muda */
+    color: white;
+}
+.delete-verification-modal .btn-confirm:hover {
+    background-color: #e66f6f;
+}
+
+/* --- 2. Specific Styling: Pop-up Berhasil Hapus/Sukses (success-delete-modal) --- */
+.success-delete-modal .modal-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: #61E87E; /* Hijau muda */
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.success-delete-modal .modal-icon-wrapper svg {
+    font-size: 40px;
+}
+
+.success-delete-modal .modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.success-delete-modal .modal-message {
+    font-size: 18px;
+    color: #777; 
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+/* Tombol OK di modal success */
+.success-add-modal .btn-confirm {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #FF7B7B; /* Merah muda */
+    color: white;
+    width: 100%;
+    max-width: 200px; /* Lebar tombol OK */
+    margin-top: 20px;
+}
+.success-add-modal .btn-confirm:hover {
+    background-color: #e66f6f;
+}

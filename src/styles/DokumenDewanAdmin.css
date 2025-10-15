@@ -1,0 +1,281 @@
+/* src/styles/DokumenDewanAdmin.css */
+/* Menggunakan variabel warna dari Dashboard Admin untuk konsistensi */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Variabel Warna dari Dashboard Admin */
+:root {
+    --color-primary-orange: #FFBB70;
+    --color-secondary-orange: #ED9455;
+    --color-soft-orange: #F4CC99;
+    --color-bg-light: #FFFADE;
+    --color-card-border: #DB944B;
+    --color-text-dark: #222222;
+    --color-text-grey: #40342F;
+    --color-pagination-text: #505050;
+    
+    /* Action & Status Colors */
+    --color-action-download: #FCAE53;
+    --color-action-view: #60C35D; 
+    --color-action-edit: #3662E3;
+    --color-action-delete: #FF684F;
+    --color-status-green: #88F48D;
+    --color-status-green-text: #305632;
+    
+    /* File Icons */
+    --color-file-pdf: #D40004;
+    --color-file-word: #344AAB;
+    --color-file-excel: #407F4B;
+
+    /* Table Colors */
+    --color-table-line: #BABABA;
+    --color-search-border: #ACACAC;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Background Admin */
+    background: url("../../assets/bg-admin.png") no-repeat center center/cover;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 980px;
+    background: transparent;
+}
+
+/* --- Style Sidebar Admin (Rata Kiri) --- */
+.sidebar {
+    width: 272px; 
+    padding: 30px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-soft-orange);
+    flex-shrink: 0;
+    margin-left: 0; 
+    position: relative;
+    z-index: 10;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    padding-left: 0;
+}
+
+.logo-img { width: 180px; height: auto; }
+.menu { padding-left: 0; }
+.menu-item { 
+    padding: 20px 15px; 
+    font-size: 15px; 
+    margin-bottom: 5px;
+}
+.menu-item.active {
+    background: rgba(255, 220, 171, 0.8);
+    color: var(--color-secondary-orange);
+    font-weight: 500;
+}
+.menu-item.active i {
+    color: var(--color-secondary-orange);
+}
+
+/* ------------------- */
+/* Konten Utama Dokumen Dewan */
+/* ------------------- */
+.document-content {
+    flex-grow: 1;
+    padding: 0 40px;
+    z-index: 5;
+    position: relative;
+}
+/* Ikon Rumah di Kanan Atas */
+.header-admin-profile {
+    position: absolute;
+    top: 33px;
+    right: 40px;
+}
+.profile-pic-large-admin {
+    width: 95px;
+    height: 95px;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    border: 3px solid var(--color-primary-orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.home-icon {
+    font-size: 40px;
+    color: var(--color-secondary-orange);
+}
+
+.document-section {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--color-card-border);
+    padding: 20px 30px 40px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 189px; 
+}
+
+/* --- Top Bar (Breadcrumb & Tombol Tambah) --- */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.breadcrumb {
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-dark); 
+}
+.breadcrumb .active-link { color: var(--color-secondary-orange); text-decoration: none; cursor: pointer; }
+.breadcrumb .separator { color: var(--color-text-dark); margin: 0 5px; }
+
+.btn-tambah-dokumen {
+    background: var(--color-action-add-bg);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 10px 25px;
+    height: 52px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 282px; 
+    box-shadow: 0 4px 8px rgba(255, 187, 112, 0.5);
+    transition: background-color 0.2s;
+}
+.btn-tambah-dokumen:hover { background: var(--color-secondary-orange); }
+
+
+/* --- Search Bar --- */
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 0 20px;
+    gap: 15px;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid var(--color-search-border);
+    padding: 5px 15px;
+    width: 463px; 
+    height: 45px;
+}
+.search-icon { font-size: 20px; color: var(--color-search-border); margin-right: 10px; }
+.search-input { border: none; outline: none; flex-grow: 1; font-size: 20px; color: var(--color-search-border); }
+.filter-icon {
+    font-size: 24px;
+    color: var(--color-secondary-orange);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* --- Tabel Data --- */
+.data-table-container { overflow-x: auto; }
+.data-table { width: 100%; min-width: 1000px; border-collapse: collapse; }
+.data-table th, .data-table td { padding: 15px 10px; text-align: left; font-size: 16px; color: var(--color-text-dark); }
+.data-table th { font-weight: 500; color: white; }
+.header-row { background-color: var(--color-primary-orange); height: 67px; }
+.data-table tbody tr { border-bottom: 1px solid var(--color-table-line); }
+
+/* Kolom Lebar Disesuaikan untuk Admin (6 Kolom) */
+.col-checkbox { width: 5%; text-align: center; }
+.col-name { width: 25%; }
+.col-anggota { width: 20%; } 
+.col-status { width: 15%; text-align: center; }
+.col-date { width: 15%; }
+.col-aksi { width: 10%; text-align: center; }
+
+
+/* Custom Checkbox */
+.custom-checkbox {
+    width: 27px; height: 27px; border: 2px solid #D9D9D9; border-radius: 10px; display: inline-block; vertical-align: middle;
+}
+.header-row .custom-checkbox { border-color: white; }
+
+/* File Icon */
+.file-icon { font-size: 18px; margin-right: 5px; }
+.red-file { color: var(--color-file-pdf); }
+.word-file { color: var(--color-file-word); }
+.excel-file { color: var(--color-file-excel); }
+
+
+/* Status Badge */
+.status-badge {
+    padding: 5px 15px; border-radius: 42px; font-size: 15px; font-weight: 400; display: inline-block;
+}
+.status-badge.green-bg { background-color: var(--color-status-green); color: var(--color-status-green-text); }
+
+
+/* Action Buttons */
+.action-buttons { display: flex; justify-content: center; gap: 8px; }
+.action-btn {
+    width: 48px; height: 40px; background: white; border-radius: 10px; border-width: 1px; border-style: solid;
+    cursor: pointer; font-size: 16px; transition: background-color 0.2s;
+}
+.action-btn:hover { background-color: #f7f7f7; }
+.action-btn.orange-border { border-color: var(--color-action-download); color: var(--color-action-download); }
+.action-btn.blue-border { border-color: var(--color-action-edit); color: var(--color-action-edit); }
+.action-btn.red-border { border-color: var(--color-action-delete); color: var(--color-action-delete); }
+
+/* --- Pagination Footer --- */
+.pagination-footer {
+    display: flex; justify-content: space-between; align-items: center; padding-top: 30px;
+}
+.page-numbers { display: flex; align-items: center; border: 1px solid #F8BD7F; border-radius: 7px; overflow: hidden; }
+
+.page-number, .page-arrow {
+    background: white; border: none; padding: 8px 15px; font-size: 16px; font-weight: 600; cursor: pointer;
+    height: 35px; min-width: 35px; display: flex; justify-content: center; align-items: center;
+}
+.page-arrow:first-child { border-right: 1px solid #F8BD7F; }
+.page-number { border-right: 1px solid #F8BD7F; }
+.page-number.active-page { background: var(--color-primary-orange); color: white; }
+
+
+/* --- Responsiveness --- */
+@media (max-width: 1200px) {
+    .list-card { width: 100%; }
+    .top-bar { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .btn-tambah-dokumen { width: 100%; }
+    .search-box { width: 350px; }
+    .search-and-action { justify-content: space-between; }
+}
+@media (max-width: 768px) {
+    .main-wrapper { flex-direction: column; }
+    .sidebar { width: 100%; margin-left: 0; }
+    .content-area { padding: 20px 10px; }
+    .pagination-footer { flex-direction: column; gap: 15px; align-items: center; }
+}

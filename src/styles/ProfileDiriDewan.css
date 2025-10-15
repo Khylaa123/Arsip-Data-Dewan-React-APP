@@ -1,0 +1,307 @@
+/* Custom Fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Variabel Warna (Sama dengan DashboardDewan.css) */
+:root {
+    --color-primary-orange: #FFBB70;
+    --color-secondary-orange: #ED9455;
+    --color-soft-orange: #F4CC99;
+    --color-bg-light: #FFFADE;
+    --color-text-dark: #222222;
+    --color-text-light: #A8A8A8;
+    --color-text-grey: #505050;
+    --color-input-bg: #F6F6F6;
+    --color-input-border: #FFBB70;
+    --color-readonly-bg: #EFEFEF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    /* KOREKSI JALUR GAMBAR */
+    background-image: url('../../assets/bg-dewan.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 980px;
+    background: transparent;
+}
+
+/* --- Style Sidebar Dewan (diambil dari DashboardDewan.css) --- */
+/* Disertakan agar style sidebar konsisten jika CSS ini dimuat lebih dulu */
+.sidebar {
+    width: 272px; 
+    padding: 30px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-soft-orange);
+    flex-shrink: 0;
+    margin-left: -50px; 
+    position: relative;
+    z-index: 10;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-left: 50px; 
+}
+.profile-summary {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-left: 50px; 
+}
+
+.divider {
+    border: none;
+    height: 4px;
+    background-color: var(--color-soft-orange);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.menu {
+    padding-left: 50px; 
+}
+.menu-item.active {
+    background: rgba(255, 220, 171, 0.8);
+    color: var(--color-secondary-orange);
+    font-weight: 600;
+}
+/* --- Akhir Style Sidebar --- */
+
+
+/* ------------------- */
+/* Konten Utama Profil */
+/* ------------------- */
+.profile-content {
+    flex-grow: 1;
+    padding: 20px 40px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px 45px 50px 45px;
+    width: 950px; /* Lebar sesuai desain */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--color-soft-orange);
+    padding-bottom: 30px;
+}
+
+.profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #E6E6E6;
+    border: 3px solid var(--color-secondary-orange);
+    flex-shrink: 0;
+    margin-right: 30px;
+    position: relative;
+}
+
+.profile-img-large {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.profile-pic-large:hover .upload-overlay {
+    opacity: 1;
+}
+
+.upload-icon {
+    color: white;
+    font-size: 30px;
+}
+
+.profile-info-text h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-secondary-orange);
+    margin-bottom: 5px;
+    text-align: left;
+}
+.profile-info-text p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-grey);
+    text-align: left;
+}
+
+/* --- Form Profil --- */
+.profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid var(--color-input-border);
+    border-radius: 8px;
+    background: var(--color-input-bg);
+    font-size: 15px;
+    color: var(--color-text-dark);
+}
+
+.form-group input[readonly] {
+    background: var(--color-readonly-bg);
+    border-color: #D9D9D9;
+    color: var(--color-text-grey);
+    cursor: default;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23ED9455" d="M10 3.5L6 7.5 2 3.5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 35px;
+}
+
+
+/* --- Footer Aksi --- */
+.action-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    gap: 15px;
+}
+
+.btn-edit, .btn-cancel, .btn-save {
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.btn-edit {
+    background: white;
+    border: 2px solid var(--color-primary-orange);
+    color: var(--color-primary-orange);
+}
+.btn-edit:hover {
+    background: #fff7e6;
+}
+
+.btn-cancel {
+    background: white;
+    border: 2px solid var(--color-secondary-orange);
+    color: var(--color-secondary-orange);
+}
+.btn-cancel:hover {
+    background: #fff0d9;
+}
+
+.btn-save {
+    background: var(--color-secondary-orange);
+    border: 2px solid var(--color-secondary-orange);
+    color: white;
+}
+.btn-save:hover {
+    background: var(--color-primary-orange);
+    border-color: var(--color-primary-orange);
+}
+
+
+/* --- Responsiveness --- */
+@media (max-width: 1024px) {
+    .profile-card {
+        width: 95%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-pic-large {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .profile-info-text h1,
+    .profile-info-text p {
+        text-align: center;
+    }
+    .action-footer {
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .btn-edit, .btn-cancel, .btn-save {
+        min-width: 100px;
+        flex-grow: 1;
+        font-size: 16px;
+    }
+}

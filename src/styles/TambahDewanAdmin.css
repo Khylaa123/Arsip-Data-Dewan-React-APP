@@ -1,0 +1,331 @@
+/* src/styles/TambahDewanAdmin.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-primary-orange: #FFBB70;
+    --color-secondary-orange: #ED9455;
+    --color-soft-orange: #F4CC99;
+    --color-bg-light: #FFFADE;
+    
+    --color-text-dark: #222222;
+    --color-text-grey: #505050;
+    --color-input-border: #D0D0D0;
+    --color-placeholder: #8B8B8B;
+    --color-file-label: #757575;
+
+    --color-admin-text-dark: #40342F;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Background Admin */
+    background: url("../../assets/bg-admin.png") no-repeat center center/cover;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 980px;
+    background: transparent;
+}
+
+/* --- Sidebar Admin (Adjusted for consistency: no negative margin) --- */
+.sidebar {
+    width: 272px; 
+    padding: 30px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-soft-orange);
+    flex-shrink: 0;
+    margin-left: 0; 
+    position: relative;
+    z-index: 10;
+}
+.header-logo {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    padding-left: 0; 
+}
+.menu { padding-left: 0; }
+.menu-item { 
+    padding: 20px 15px; 
+    font-size: 15px; 
+    margin-bottom: 5px;
+}
+.menu-item.active {
+    background: rgba(255, 220, 171, 0.8);
+    color: var(--color-secondary-orange);
+    font-weight: 500;
+}
+
+
+/* ------------------- */
+/* Konten Utama */
+/* ------------------- */
+.content-area {
+    flex-grow: 1;
+    padding: 0 40px;
+    z-index: 5;
+    position: relative;
+}
+
+/* Header Admin Profile (Ikon Rumah) */
+.header-admin-profile {
+    position: absolute;
+    top: 33px;
+    right: 40px;
+}
+.profile-pic-large-admin {
+    width: 95px;
+    height: 95px;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    border: 3px solid var(--color-primary-orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.home-icon {
+    font-size: 40px;
+    color: var(--color-secondary-orange);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding-top: 189px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--color-admin-text-dark);
+}
+.breadcrumb .active-link {
+    color: var(--color-secondary-orange); 
+    cursor: pointer;
+}
+.breadcrumb .separator {
+    color: var(--color-admin-text-dark);
+    font-weight: 700;
+    margin: 0 5px;
+}
+.breadcrumb .current-page {
+    color: var(--color-admin-text-dark); 
+}
+
+.main-title {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--color-admin-text-dark);
+    margin-bottom: 30px;
+}
+
+/* Form Card */
+.form-card {
+    background: white;
+    border-radius: 14px;
+    border: 2px solid var(--color-primary-orange);
+    box-shadow: 0px 4px 10.5px 3px rgba(0, 0, 0, 0.25);
+    padding: 40px 60px 50px;
+    width: 100%; 
+    max-width: 1112px;
+}
+
+.document-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 40px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group.span-2 {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-grey);
+    margin-bottom: 8px;
+}
+
+/* Text Input Styling */
+.text-input, .select-input {
+    width: 100%;
+    height: 40px;
+    background: white;
+    border: 1px solid var(--color-input-border);
+    border-radius: 12px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: var(--color-text-dark);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.text-input:focus, .select-input:focus {
+    border-color: var(--color-primary-orange);
+}
+.text-input::placeholder {
+    color: var(--color-placeholder);
+    font-weight: 500;
+}
+
+/* Select Input Styling */
+.select-input {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23ED9455" d="M10 3.5L6 7.5 2 3.5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 35px;
+}
+
+/* Input with Icon */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.calendar-icon {
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    color: var(--color-secondary-orange);
+    cursor: pointer;
+}
+.date-input {
+    padding-right: 50px; 
+}
+
+/* Photo Upload Styling */
+.photo-upload-container {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.profile-pic-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #E6E6E6;
+    border: 3px solid var(--color-secondary-orange);
+    flex-shrink: 0;
+}
+.profile-pic-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.file-upload-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.file-upload-details .file-name-display {
+    color: var(--color-text-grey);
+    font-size: 14px;
+}
+.file-label-button {
+    background: var(--color-primary-orange);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.file-label-button:hover {
+    background: var(--color-secondary-orange);
+}
+.file-input { display: none; }
+
+
+/* Action Buttons */
+.action-buttons-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn-cancel, .btn-tambah {
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 30px;
+    height: 58px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 130px;
+}
+
+.btn-cancel {
+    background: white;
+    border: 2px solid var(--color-primary-orange);
+    color: #F3AF64;
+}
+.btn-cancel:hover {
+    background: #fff7e6;
+}
+
+.btn-tambah {
+    background: var(--color-primary-orange);
+    border: 2px solid var(--color-primary-orange);
+    color: white;
+}
+.btn-tambah:hover {
+    background: var(--color-secondary-orange);
+}
+
+
+/* --- Responsiveness --- */
+@media (max-width: 1024px) {
+    .document-form {
+        grid-template-columns: 1fr;
+    }
+    .form-group.span-2 {
+        grid-column: span 1;
+    }
+    .form-card {
+        padding: 30px 20px;
+    }
+    .photo-upload-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+@media (max-width: 768px) {
+    .action-buttons-footer {
+        justify-content: space-around;
+    }
+    .btn-cancel, .btn-tambah {
+        min-width: 100px;
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+}

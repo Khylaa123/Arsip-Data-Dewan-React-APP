@@ -1,0 +1,351 @@
+/* src/styles/PengaturanAkunDewan.css (Salinan dari pengaturan_akun.css dengan koreksi) */
+
+/* Custom Fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Variabel Warna */
+:root {
+    --color-primary-orange: #FFBB70;
+    --color-secondary-orange: #ED9455;
+    --color-soft-orange: #F4CC99;
+    --color-bg-light: #FFFADE;
+    --color-text-dark: #222222;
+    --color-text-light: #A8A8A8;
+    --color-text-grey: #505050;
+    --color-input-bg: #F6F6F6;
+    --color-input-placeholder: #C7C7C7;
+    --color-logout-text: #8B8B8B;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    /* KOREKSI PATH GAMBAR agar dapat diakses dari komponen (relatif ke index.html) */
+    background-image: url('../../assets/bg-dewan.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 980px;
+    background: transparent;
+}
+
+/* ------------------- */
+/* Sidebar Kiri (Konsisten) */
+/* ------------------- */
+/* Penting: Pastikan kode ini TIDAK bentrok dengan DashboardDewan.css yang diimpor di AppRouter.jsx */
+/* Jika Anda mengimpor file ini di komponen, ia akan menimpa style DashboardDewan.css. */
+/* Kita tetap harus memastikan style sidebar di sini sama persis dengan DashboardDewan.css */
+.sidebar {
+    width: 272px; 
+    padding: 30px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-soft-orange);
+    flex-shrink: 0;
+    margin-left: -50px; 
+    position: relative;
+    z-index: 10;
+}
+/* ... (SISA STYLE SIDEBAR SAMA) ... */
+.header-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-left: 50px; 
+}
+
+.logo-img {
+    width: 200px;
+    height: auto;
+}
+
+.divider {
+    border: none;
+    height: 4px;
+    background-color: var(--color-soft-orange);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-summary {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-left: 50px; 
+}
+
+.profile-pic-small {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #E6E6E6;
+    border: 2px solid var(--color-secondary-orange);
+}
+
+.profile-img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-summary .name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+}
+
+.profile-summary .position {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
+.menu {
+    width: 100%;
+    padding-left: 50px; 
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    margin-bottom: 15px;
+    color: var(--color-primary-orange);
+    text-decoration: none;
+    border-radius: 9px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.menu-item i {
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.menu-item.active {
+    background: rgba(255, 220, 171, 0.8);
+    color: var(--color-secondary-orange);
+    font-weight: 600;
+}
+.menu-item.active i {
+    color: var(--color-secondary-orange);
+}
+
+/* ------------------- */
+/* Konten Utama Setting (INI YANG HARUS MUNCUL) */
+/* ------------------- */
+.settings-content {
+    flex-grow: 1;
+    padding: 20px 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.settings-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px 45px 50px 45px;
+    width: 920px; /* Lebar sesuai desain */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.setting-title {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--color-text-grey);
+    margin-bottom: 5px;
+}
+
+.setting-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #929292;
+    margin-bottom: 40px;
+}
+
+/* Form Styling */
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-grey);
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background: var(--color-input-bg);
+    border-radius: 12px;
+    border: 1px solid var(--color-primary-orange);
+    height: 50px;
+    padding: 0 15px;
+}
+
+.input-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex-grow: 1;
+    font-size: 14px;
+    padding-right: 15px;
+    color: var(--color-text-dark);
+}
+.input-container input::placeholder {
+    color: var(--color-input-placeholder);
+    font-weight: 500;
+}
+
+.input-container input[readonly] {
+    color: var(--color-text-dark);
+    cursor: default;
+}
+
+.input-icon {
+    font-size: 20px;
+    color: var(--color-primary-orange);
+}
+.username-field .input-icon {
+    font-size: 16px;
+}
+.password-field .input-icon {
+    font-size: 20px;
+}
+
+/* Action Footer */
+.action-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-logout, .btn-cancel, .btn-save {
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-logout {
+    background: none;
+    border: none;
+    color: var(--color-logout-text);
+    padding: 15px 0;
+    text-align: left;
+    min-width: 75px;
+}
+
+.btn-cancel {
+    background: white;
+    border: 2px solid var(--color-primary-orange);
+    color: #F3AF64;
+    min-width: 115px;
+}
+.btn-cancel:hover {
+    background: #fff7e6;
+}
+
+.btn-save {
+    background: var(--color-primary-orange);
+    border: 2px solid var(--color-primary-orange);
+    color: white;
+    min-width: 240px;
+}
+.btn-save:hover {
+    background: var(--color-secondary-orange);
+    border-color: var(--color-secondary-orange);
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 1024px) {
+    .settings-card {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
+        border-radius: 20px 20px 0 0;
+        border-bottom: 1px solid var(--color-soft-orange);
+        padding-bottom: 10px;
+    }
+    .sidebar .header-logo, 
+    .sidebar .profile-summary, 
+    .sidebar .menu {
+        padding-left: 0;
+        justify-content: center;
+    }
+    .settings-content {
+        width: 100%;
+        padding: 10px;
+    }
+    .settings-card {
+        width: 100%;
+        padding: 20px;
+    }
+    .action-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .btn-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .btn-save, .btn-cancel {
+        min-width: 48%;
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}

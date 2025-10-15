@@ -1,0 +1,387 @@
+/* src/styles/TambahDokumenAdmin.css */
+
+/* Custom Fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Variabel Warna */
+:root {
+    --color-primary-orange: #FFBB70;
+    --color-secondary-orange: #ED9455;
+    --color-soft-orange: #F4CC99;
+    --color-bg-light: #FFFADE;
+    
+    /* Text & Input Colors */
+    --color-text-dark: #222222;
+    --color-text-grey: #505050;
+    --color-input-border: #D0D0D0;
+    --color-placeholder: #8B8B8B;
+    --color-file-label: #757575;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    /* KOREKSI JALUR: Menggunakan jalur background admin */
+    background-image: url('../../assets/bg-admin.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Tambahkan align-items agar konten di tengah vertikal */
+}
+
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 980px;
+    background: transparent;
+}
+
+/* ------------------- */
+/* Sidebar Kiri (Admin - KOREKSI MARGIN) */
+/* ------------------- */
+.sidebar {
+    width: 272px; 
+    padding: 30px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--color-soft-orange);
+    flex-shrink: 0;
+    /* Margin diubah menjadi 0 untuk rata kiri di Admin */
+    margin-left: 0; 
+    position: relative;
+    z-index: 10;
+}
+
+.header-logo {
+    display: flex;
+    /* Sesuaikan rata kiri */
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    padding-left: 0; 
+}
+
+.logo-img {
+    width: 180px;
+    height: auto;
+}
+
+.menu {
+    width: 100%;
+    padding-left: 0; 
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+    margin-bottom: 5px;
+    color: var(--color-primary-orange);
+    text-decoration: none;
+    border-radius: 9px;
+    transition: background-color 0.3s;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.menu-item i {
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.menu-item.active {
+    background: rgba(255, 220, 171, 0.8);
+    color: var(--color-secondary-orange);
+    font-weight: 500;
+}
+.menu-item.active i {
+    color: var(--color-secondary-orange);
+}
+
+/* ------------------- */
+/* Konten Utama */
+/* ------------------- */
+.content-area {
+    flex-grow: 1;
+    padding: 0 40px;
+    z-index: 5;
+    position: relative;
+}
+
+/* Header Admin Profile (Ikon Rumah) */
+.header-admin-profile {
+    position: absolute;
+    top: 33px;
+    right: 40px;
+}
+.profile-pic-large-admin {
+    width: 95px;
+    height: 95px;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    border: 3px solid var(--color-primary-orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.home-icon {
+    font-size: 40px;
+    color: var(--color-secondary-orange);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding-top: 189px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.breadcrumb .active-link {
+    color: var(--color-secondary-orange); /* Sesuaikan warna link */
+    cursor: pointer;
+}
+.breadcrumb .separator {
+    color: var(--color-text-dark); /* Sesuaikan warna */
+    font-weight: 700;
+    margin: 0 5px;
+}
+.breadcrumb .current-page {
+    color: var(--color-text-dark); 
+}
+
+.main-title {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 30px;
+}
+
+/* Form Card */
+.form-card {
+    background: white;
+    border-radius: 14px;
+    border: 2px solid var(--color-primary-orange);
+    box-shadow: 0px 4px 10.5px 3px rgba(0, 0, 0, 0.25);
+    padding: 40px 60px 50px;
+    width: 100%; /* Dibuat fleksibel */
+    max-width: 1112px; /* Batasan lebar */
+}
+
+.document-form {
+    /* Gunakan grid untuk tata letak yang lebih rapi */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 kolom */
+    gap: 25px 40px; 
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 1; /* Default 1 kolom */
+}
+.form-group:nth-child(3) {
+    grid-column: span 2; /* Dokumen mengambil 2 kolom */
+}
+
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-grey);
+    margin-bottom: 8px;
+}
+
+/* Text Input Styling */
+.text-input {
+    width: 100%;
+    height: 40px;
+    background: white;
+    border: 1px solid var(--color-input-border);
+    border-radius: 12px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: var(--color-text-dark);
+    outline: none;
+}
+.text-input::placeholder {
+    color: var(--color-placeholder);
+    font-weight: 500;
+}
+
+/* Date Input Specific */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    color: var(--color-secondary-orange);
+    cursor: pointer;
+}
+.date-input {
+    padding-right: 50px; /* Ruang untuk ikon */
+}
+
+/* File Input Custom Styling */
+.file-input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background: white;
+    border: 1px solid var(--color-input-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.file-input {
+    display: none; /* Sembunyikan input file asli */
+}
+
+.file-label-button {
+    background: var(--color-input-border);
+    color: var(--color-file-label);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--color-input-border);
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    flex-shrink: 0;
+}
+
+.file-name-display {
+    font-size: 15px;
+    color: var(--color-file-label);
+    padding-left: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Action Buttons */
+.action-buttons-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    grid-column: span 2; /* Tombol aksi di bawah */
+}
+
+.btn-cancel, .btn-tambah {
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px 30px;
+    height: 58px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 130px;
+}
+
+.btn-cancel {
+    background: white;
+    border: 2px solid var(--color-primary-orange);
+    color: #F3AF64;
+    min-width: 115px;
+}
+.btn-cancel:hover {
+    background: #fff7e6;
+}
+
+.btn-tambah {
+    background: var(--color-primary-orange);
+    border: 2px solid var(--color-primary-orange);
+    color: white;
+}
+.btn-tambah:hover {
+    background: var(--color-secondary-orange);
+    border-color: var(--color-secondary-orange);
+}
+
+
+/* --- Responsiveness --- */
+@media (max-width: 1200px) {
+    .form-card {
+        width: 100%;
+    }
+    .document-form {
+        grid-template-columns: 1fr; /* Satu kolom saat di-responsive */
+    }
+    .form-group, .form-group:nth-child(3), .action-buttons-footer {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .content-area {
+        padding: 20px 10px;
+    }
+    .form-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        margin-left: 0;
+        border-radius: 20px 20px 0 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--color-soft-orange);
+    }
+    .sidebar .header-logo, 
+    .sidebar .menu {
+        padding-left: 0;
+        justify-content: center;
+    }
+    .file-input-container {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .file-label-button {
+        border-radius: 5px;
+        border-right: none;
+        margin-bottom: 10px;
+        height: 40px;
+    }
+    .file-name-display {
+        padding-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .action-buttons-footer {
+        justify-content: space-around;
+    }
+    .btn-cancel, .btn-tambah {
+        min-width: 100px;
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+}

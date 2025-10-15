@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* KOREKSI: Target .login-page untuk background full screen */
+.login-page { 
+  background: url("../assets/bg-login.jpg") no-repeat center center/cover; /* PATH KE GAMBAR */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Box form login */
+.login-form {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 28px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+}
+/* ... (dst) ... */
+/* Logo */
+.logo {
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Judul */
+h1 {
+  font-size: 24px;
+  color: #875B34;
+  font-weight: 700;
+  text-align: center;
+}
+
+.subtitle {
+  color: #6b5a4a;
+  font-size: 13px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  color: #6b4f3a;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.desc {
+  font-size: 12px;
+  color: #333333;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* Input field */
+label {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  margin: 6px 0 4px;
+  color: #5a3e2b;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #c8a37d;
+  border-radius: 10px;
+  background: #fff;
+  padding: 7px 10px;
+  margin-bottom: 10px;
+}
+
+/* KOREKSI: Ganti i menjadi class selector untuk ikon */
+.input-box svg { /* Target ikon React */
+  color: #a98c6b;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 13px;
+}
+
+/* Opsi bawah */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  margin: 6px 0 12px;
+}
+
+.options a {
+  color: #875B34;
+  text-decoration: none;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* Tombol login */
+button[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: #B0733E;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #9a6234;
+}
+
+/* Footer */
+.footer {
+  font-size: 11px;
+  margin-top: 12px;
+  color: #6b4f3a;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .login-form {
+    padding: 25px 20px;
+    max-width: 290px;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}

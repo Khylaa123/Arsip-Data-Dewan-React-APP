@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fffaf2;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.header-bg {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.header-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  background: #f8a44d;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  gap: 40px;
+  padding: 40px 60px;
+  align-items: flex-start;
+}
+
+/* VIEWER */
+.viewer {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.viewer-title {
+  font-weight: 600;
+  color: #f8a44d;
+}
+
+/* iframe PDF */
+.pdf-frame {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.pdf-frame iframe {
+  width: 100%;
+  height: 70vh; /* tinggi tampilannya */
+  border: none;
+}
+
+/* INFO PANEL */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 320px;
+}
+
+.info-box,
+.action-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-box h3,
+.action-box h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.info-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-box li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f8a44d;
+  margin-top: 6px;
+}
+
+.info-box .title {
+  color: #f8a44d;
+  font-weight: 600;
+}
+
+.info-box .label {
+  color: #f8a44d;
+  font-weight: 600;
+}
+
+.action-box .download-btn {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: 2px solid #f8a44d;
+  color: #f8a44d;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+}
+
+.action-box .download-btn:hover {
+  background-color: #f8a44d;
+  color: white;
+}
+
+.action-box .print-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f8a44d;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-box .print-btn:hover {
+  background: #f28c21;
+}
