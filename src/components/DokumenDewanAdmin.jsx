@@ -31,7 +31,8 @@ const DokumenDewanAdmin = ({ activePath, onLogout }) => {
 
     // 1. Logika Navigasi
     const handleHomeClick = () => {
-        navigate('/dashboard/admin');
+        // NAVIGASI KE DASHBOARD SEARCH BARU
+        navigate('/data/search');
     };
     
     const handleTambahDokumen = () => {

@@ -53,7 +53,8 @@ const PengaturanAkunAdmin = ({ activePath, onLogout }) => {
     };
     
     const handleHomeClick = () => {
-        navigate('/dashboard/admin');
+        // NAVIGASI KE DASHBOARD SEARCH BARU
+        navigate('/data/search');
     };
 
     return (

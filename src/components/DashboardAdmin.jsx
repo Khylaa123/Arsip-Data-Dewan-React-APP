@@ -58,7 +58,8 @@ const DashboardAdmin = ({ activePath, onLogout }) => {
     
     // Logika Home Icon (di kanan atas)
     const handleHomeClick = () => {
-        navigate('/dashboard/admin');
+        // NAVIGASI KE DASHBOARD SEARCH BARU
+        navigate('/data/search');
     };
 
     return (

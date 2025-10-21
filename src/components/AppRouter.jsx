@@ -6,6 +6,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import DashboardDewan from './DashboardDewan'; 
 import DashboardAdmin from './DashboardAdmin'; 
+import DashboardSearch from './DashboardSearch'; // <<< Pastikan ini di-import
 
 // --- Komponen Dewan ---
 import DokumenSayaDewan from './DokumenSayaDewan';
@@ -25,7 +26,6 @@ import ViewDokumenAdmin from './ViewDokumenAdmin';
 
 
 const AppRouter = () => {
-    // Memuat role dari Local Storage untuk menjaga status login
     const initialRole = localStorage.getItem('user_role') || null;
     const [userRole, setUserRole] = useState(initialRole);
 
@@ -40,6 +40,8 @@ const AppRouter = () => {
         localStorage.removeItem('user_role');
         setUserRole(null);
         alert('Anda berhasil keluar.');
+        // Pastikan user kembali ke halaman root/login
+        window.location.href = '/';
     };
     
     // Fungsi untuk menentukan jalur dashboard berdasarkan role
@@ -54,11 +56,17 @@ const AppRouter = () => {
         const dashboardPath = getDashboardPath(userRole);
         return (
             <Routes>
-                {/* Rute Default/Login dialihkan ke Dashboard jika sudah login */}
-                <Route path="/" element={<Navigate to={dashboardPath} replace />} />
+                {/* 1. Jika sudah login, root path dialihkan ke dashboard utama */} 
+                <Route path="/" element={<Navigate to={dashboardPath} replace />} /> 
+                
+                {/* 2. Rute KHUSUS untuk Dashboard Search (terlindungi) */}
+                <Route 
+                    path="/data/search" 
+                    element={<DashboardSearch />} 
+                />
 
                 {/* ==================================== */}
-                {/* Rute untuk DEWAN (Role: 'dewan') */}
+                {/* Rute DEWAN dan ADMIN lainnya (tetap sama) */}
                 {/* ==================================== */}
                 
                 <Route 
@@ -66,7 +74,7 @@ const AppRouter = () => {
                     element={<DashboardDewan onLogout={handleLogout} activePath="/dashboard/dewan" />} 
                 />
                 
-                {/* Menu Samping Dewan */}
+                {/* Menu Samping Dewan (rute lainnya tidak diubah) */}
                 <Route 
                     path="/profile/diri" 
                     element={<ProfileDiriDewan onLogout={handleLogout} activePath="/profile/diri" />} 
@@ -81,23 +89,16 @@ const AppRouter = () => {
                 />
                 
 
-                {/* ==================================== */}
-                {/* Rute untuk ADMIN (Role: 'admin') */}
-                {/* ==================================== */}
-                
-                {/* Dashboard Utama Admin */}
                 <Route 
                     path="/dashboard/admin" 
                     element={<DashboardAdmin onLogout={handleLogout} activePath="/dashboard/admin" />} 
                 />
                 
-                {/* Menu Samping Admin: Data Dewan (List) */}
                 <Route 
                     path="/data/dewan" 
                     element={<DataDewanAdmin onLogout={handleLogout} activePath="/data/dewan" />} 
                 />
                 
-                {/* RUTE Data Dewan (CRUD) */}
                 <Route 
                     path="/data/dewan/tambah" 
                     element={<TambahDewanAdmin onLogout={handleLogout} activePath="/data/dewan" />} 
@@ -111,13 +112,11 @@ const AppRouter = () => {
                     element={<ViewDewanAdmin onLogout={handleLogout} activePath="/data/dewan" />} 
                 />
                 
-                {/* Menu Samping Admin: Dokumen Dewan */}
                 <Route 
                     path="/dokumen/admin" 
                     element={<DokumenDewanAdmin onLogout={handleLogout} activePath="/dokumen/admin" />} 
                 />
 
-                {/* RUTE Dokumen Dewan (Tambah/View) */}
                 <Route path="/dokumen/tambah" 
                     element={<TambahDokumenAdmin onLogout={handleLogout} activePath="/dokumen/admin" />} 
                 />
@@ -125,13 +124,11 @@ const AppRouter = () => {
                     element={<ViewDokumenAdmin onLogout={handleLogout} activePath="/dokumen/admin" />} 
                 />
                 
-                {/* Menu Samping Admin: Pengaturan Akun */}
                 <Route 
                     path="/pengaturan/admin" 
                     element={<PengaturanAkunAdmin onLogout={handleLogout} activePath="/pengaturan/admin" />} 
                 />
                 
-                {/* Rute Menu Cepat Admin (Alias) */}
                 <Route path="/data/kelola" 
                     element={<DataDewanAdmin onLogout={handleLogout} activePath="/data/dewan" />} 
                 />
@@ -145,7 +142,7 @@ const AppRouter = () => {
     // --- JIKA BELUM LOGIN ---
     return (
         <Routes>
-            {/* Hanya izinkan akses ke Login */}
+            {/* INI MENGEMBALIKAN LOGIN PAGE SEBAGAI HALAMAN UTAMA/ROOT */}
             <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
             
             {/* Alihkan semua rute lain ke Login */}

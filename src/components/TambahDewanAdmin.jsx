@@ -112,7 +112,8 @@ const TambahDewanAdmin = ({ activePath, onLogout }) => {
     };
     
     const handleHomeClick = () => {
-        navigate('/dashboard/admin');
+        // NAVIGASI KE DASHBOARD SEARCH BARU
+        navigate('/data/search');
     };
 
     const titleText = isEditMode ? 'Edit Data Anggota Dewan' : 'Tambah Data Anggota Dewan';
