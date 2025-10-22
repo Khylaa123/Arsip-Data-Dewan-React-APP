@@ -35,7 +35,7 @@
 body {
     background-color: var(--color-bg-light);
     /* KOREKSI JALUR GAMBAR BACKGROUND ke assets global */
-    background-image: url('../../assets/bg-dewan.jpg'); /* <-- Perhatikan path ../../assets/bg-dewan.jpg */
+    background-image: url('../assets/bg-dewan.jpg'); /* <-- Perhatikan path ../../assets/bg-dewan.jpg */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;

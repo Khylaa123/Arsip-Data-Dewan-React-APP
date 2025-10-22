@@ -25,13 +25,14 @@
     --color-status-green-bg: #88F48D;
     --color-status-green-text: #305632;
 
-body {
-  /* KOREKSI JALUR GAMBAR (asumsi Anda menempatkan background Admin di assets) */
-  background: url("../../assets/bg-admin.png") no-repeat center center/cover;
+bbody {
+  /* PATH SUDAH DIKOREKSI: dari src/styles/ ke src/assets/ */
+  background: url("../assets/bg-admin.png") no-repeat center center/cover;
   min-height: 100vh;
+  height: 100vh; /* BARU: Memastikan tinggi penuh viewport untuk centering yang sempurna */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Mengatur item agar terpusat secara vertikal */
 }
 
     /* File Icons */
